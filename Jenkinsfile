@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'igorgutkowski/nodejsagent:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock' 
+        }
+    }
     environment {
         HOME = '.'
     }
